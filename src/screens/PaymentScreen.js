@@ -58,7 +58,14 @@ const PaymentScreen = () => {
       cvv: '',
       cardholderName: '',
     });
-    // In a real app, this would process the payment through a payment gateway
+    // PRODUCTION NOTE: This must be replaced with a secure payment gateway integration
+    // (e.g., Stripe, PayPal, Braintree) with proper:
+    // - PCI DSS compliance
+    // - Card validation and tokenization
+    // - Secure HTTPS communication
+    // - Error handling and transaction verification
+    // - Receipt generation and email confirmation
+    // Never store raw card details in the app or transmit them insecurely
   };
 
   return (
@@ -239,6 +246,8 @@ const PaymentScreen = () => {
             {paymentMethod === 'bank' && (
               <View style={styles.bankTransferInfo}>
                 <Text style={styles.bankInfoTitle}>Bank Transfer Details</Text>
+                {/* PRODUCTION NOTE: These bank details should be fetched from a secure backend API
+                    to prevent exposure in the app bundle and allow updates without app releases */}
                 <Text style={styles.bankInfoText}>
                   Bank Name: First National Bank
                 </Text>

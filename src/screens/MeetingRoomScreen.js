@@ -67,6 +67,10 @@ const MeetingRoomScreen = () => {
   ];
 
   const handleBookRoom = (room) => {
+    if (!room.available) {
+      // Room is not available, prevent booking
+      return;
+    }
     setSelectedRoom(room);
     setShowBookingModal(true);
   };
